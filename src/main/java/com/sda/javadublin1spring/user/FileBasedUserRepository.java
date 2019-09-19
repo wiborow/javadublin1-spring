@@ -1,13 +1,14 @@
 package com.sda.javadublin1spring.user;
 
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Component
+@Profile("!prod")
+@Repository
 public class FileBasedUserRepository implements UserRepository {
 
     @Override

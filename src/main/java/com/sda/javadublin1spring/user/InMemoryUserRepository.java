@@ -3,7 +3,6 @@ package com.sda.javadublin1spring.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -12,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Primary
-@Component
+@Repository
 public class InMemoryUserRepository implements UserRepository {
 
     private List<User> users;
@@ -44,9 +43,11 @@ public class InMemoryUserRepository implements UserRepository {
 
     @PostConstruct
     public void init() {
-        this.users.add(new User(1L, "Szymon", "Nowak", Gender.MALE));
-        this.users.add(new User(2L, "Jan", "Kowalski", Gender.MALE));
-        this.users.add(new User(3L, "Anna", "Wisniewska", Gender.FEMALE));
-        this.users.add(new User(4L, "Karolina", "Nowak", Gender.FEMALE));
+        if (this.users.size() == 0) {
+            this.users.add(new User(1L, "Szymon", "Nowak", Gender.MALE));
+            this.users.add(new User(2L, "Jan", "Kowalski", Gender.MALE));
+            this.users.add(new User(3L, "Anna", "Wisniewska", Gender.FEMALE));
+            this.users.add(new User(4L, "Karolina", "Nowak", Gender.FEMALE));
+        }
     }
 }
