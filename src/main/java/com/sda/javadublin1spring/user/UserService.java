@@ -1,7 +1,6 @@
 package com.sda.javadublin1spring.user;
 
 
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

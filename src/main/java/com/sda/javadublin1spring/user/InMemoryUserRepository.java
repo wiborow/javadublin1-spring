@@ -15,10 +15,12 @@ import java.util.Optional;
 public class InMemoryUserRepository implements UserRepository {
 
     private List<User> users;
+    private RepositoryHelper repositoryHelper;
 
-    public InMemoryUserRepository() {
-
+    @Autowired
+    public InMemoryUserRepository(RepositoryHelper repositoryHelper) {
         this.users = new ArrayList<>();
+        this.repositoryHelper = repositoryHelper;
     }
 
     InMemoryUserRepository(List<User> users) {
@@ -35,9 +37,9 @@ public class InMemoryUserRepository implements UserRepository {
                 .filter(user -> id.equals(user.getId()))
                 .findFirst();
     }
+
     @Override
     public List<User> findAll() {
-
         return new ArrayList<>(users);
     }
 
