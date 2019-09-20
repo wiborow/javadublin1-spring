@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users view</title>
+</head>
+<body>
+<ul>
+    <li th:each="user : ${users}">
+        <a href="/users/1"
+           th:href="'/users/' + ${user.id}"
+           th:text="${user.fullName}">Szymon Nowak</a>
+    </li>
+</ul>
+</body>
+</html>
