@@ -1,7 +1,6 @@
 package com.sda.javadublin1spring.user;
 
 
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,5 +20,9 @@ public class UserService {
 
     public List<User> findAll() {
         return userRepository.findAll();
+    }
+
+    public void saveUser(User user) {
+        userRepository.save(user);
     }
 }

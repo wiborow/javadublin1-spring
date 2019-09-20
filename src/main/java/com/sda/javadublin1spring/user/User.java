@@ -12,4 +12,8 @@ public class User {
     private String firstName;
     private String lastName;
     private Gender gender;
+
+    public String getFulName() {
+        return firstName + " " + lastName;
+    }
 }
