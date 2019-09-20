@@ -1,10 +1,7 @@
 package com.sda.javadublin1spring.user;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Random;
@@ -32,8 +29,9 @@ public class UserController {
         return modelAndView;
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/blabla")
-    public String test() {
+    @PostMapping("/users")
+    public String saveUser(@ModelAttribute User user) {
+        userService.saveUser(user);
         return "redirect:/users";
     }
 }

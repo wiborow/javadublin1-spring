@@ -26,4 +26,9 @@ public class FileBasedUserRepository implements UserRepository {
     public List<User> findAll() {
         return new ArrayList<>();
     }
+
+    @Override
+    public void save(User user) {
+
+    }
 }
