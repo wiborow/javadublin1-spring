@@ -4,10 +4,30 @@
     <meta charset="UTF-8">
     <title>Users view</title>
 </head>
+<head>
+    <style>
+        .gender-button {
+            border: 1px solid black;
+            padding: 5px;
+        }
+        .male {
+            background-color: lightblue;
+        }
+        .female {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<div>
+    <a class="gender-button male" href="/users?g=MALE">MALE</a>
+    <a class="gender-button female" href="/users?g=FEMALE">FEMALE</a>
+</div>
+
 <body>
 <ul>
     <li th:each="user : ${users}">
-        <a href="/users/1"
+        <a href="#"
            th:href="'/users/' + ${user.id}"
            th:text="${user.fullName}">Szymon Nowak</a>
     </li>
