@@ -13,6 +13,7 @@ public class UserService {
     private JpaUserRepository jpaUserRepository;
 
     public UserService(JpaUserRepository jpaUserRepository) {
+
         this.jpaUserRepository = jpaUserRepository;
     }
 
