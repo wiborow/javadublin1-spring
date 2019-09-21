@@ -9,6 +9,7 @@ import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Primary
 @Repository
@@ -49,6 +50,13 @@ public class InMemoryUserRepository implements UserRepository {
     @Override
     public List<User> findAll() {
         return new ArrayList<>(users);
+    }
+
+    @Override
+    public List<User> findByGender(Gender gender) {
+        return users.stream()
+                .filter(user -> gender.equals(user.getGender()))
+                .collect(Collectors.toList());
     }
 
     @PostConstruct
